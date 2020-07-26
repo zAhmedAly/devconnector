@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/zAhmedAly/devconnector/issues"
   },
-  "homepage": "https://github.com/zAhmedAly/devconnector#readme"
+  "homepage": "https://github.com/zAhmedAly/devconnector#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "express-validators": "^1.0.4",
+    "gravatar": "^1.8.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
 }
