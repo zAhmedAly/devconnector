@@ -84,14 +84,14 @@ router.post(
 
     const { name, email, password } = req.body;
 
-    console.log('BEFORE try catch');
+    // console.log('BEFORE try catch');
 
     try {
       let user = await User.findOne({ email });
 
       if (user) req.status(400).json({ msg: 'User already exists' });
 
-      console.log('BEFORE normalizeUrl');
+      // console.log('BEFORE normalizeUrl');
 
       const avatar = normalizeUrl(
         gravatar.url(email, {
@@ -102,7 +102,7 @@ router.post(
         { forceHttps: true }
       );
 
-      console.log('AFTER normalizeUrl');
+      // console.log('AFTER normalizeUrl');
 
       user = new User({
         name,
@@ -111,15 +111,15 @@ router.post(
         password,
       });
 
-      console.log('AFTER user = new User');
+      // console.log('AFTER user = new User');
 
       const salt = await bcrypt.genSalt(10);
 
-      console.log('AFTER bcrypt.genSalt(10)');
+      // console.log('AFTER bcrypt.genSalt(10)');
 
       user.password = await bcrypt.hash(password, salt);
 
-      console.log('AFTER bcrypt.hash');
+      // console.log('AFTER bcrypt.hash');
 
       await user.save();
 
@@ -129,7 +129,7 @@ router.post(
         },
       };
 
-      console.log('BEFORE in JWT sign');
+      // console.log('BEFORE in JWT sign');
 
       jwt.sign(
         payload,
@@ -137,7 +137,7 @@ router.post(
         { expiresIn: 360000 },
         (err, token) => {
           if (err) {
-            console.log('Error in JWT sign');
+            // console.log('Error in JWT sign');
             throw err;
           }
           res.json({ token });

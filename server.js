@@ -1,6 +1,8 @@
 const express = require('express');
 const config = require('config');
 const authRoutes = require('./routes/auth');
+const profileRoutes = require('./routes/profiles');
+
 const connectDB = require('./config/db');
 
 const app = express();
@@ -16,6 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/profile', profileRoutes);
 
 app.listen(PORT, () => {
   console.log(`===> Connected to DevConnector API server port ${PORT}`);
