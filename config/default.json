@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://mdbadmin:floor24613@nodejscluster-l96o8.mongodb.net/devconnector?retryWrites=true",
+  "jwtSecret": "jwtsecretphrasetousewithjsonwebtoken"
+}
